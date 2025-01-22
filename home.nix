@@ -1,6 +1,7 @@
 {
   _config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -115,6 +116,7 @@
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
 
+        # TODO: Get 1password installed via nix https://nixos.wiki/wiki/1Password
         gpg.format = "ssh";
         "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
