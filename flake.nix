@@ -8,6 +8,7 @@
 
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs =
@@ -19,8 +20,14 @@
     }:
     let
       configuration =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         {
+          nixpkgs.config.allowUnfreePredicate =
+            pkg:
+            builtins.elem (lib.getName pkg) [
+              "1password-cli"
+            ];
+
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
@@ -28,6 +35,7 @@
             pkgs.nil
 
             pkgs.gh
+            pkgs._1password-cli
           ];
 
           # Necessary for using flakes on this system.
