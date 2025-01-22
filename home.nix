@@ -80,6 +80,7 @@
         # Nix
         build = "darwin-rebuild switch --flake ~/.config/nix-darwin";
         update = "nix flake update --flake ~/.config/nix-darwin";
+        gc = "nix-collect-garbage -d";
       };
 
       plugins = [
