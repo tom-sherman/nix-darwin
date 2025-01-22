@@ -84,5 +84,11 @@
         }
       ];
     };
+
+    git = {
+      enable = true;
+      userName = "Tom Sherman";
+      userEmail = "the.tomsherman@gmail.com";
+    };
   };
 }
