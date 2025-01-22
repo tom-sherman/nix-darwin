@@ -1,4 +1,8 @@
-{ _config, pkgs, ... }:
+{
+  _config,
+  pkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -89,6 +93,31 @@
       enable = true;
       userName = "Tom Sherman";
       userEmail = "the.tomsherman@gmail.com";
+
+      signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwoiSqgcnFqY+9q8wJTFYEjyoeHgcSUBQk25E8tCmQv";
+      signing.signByDefault = true;
+
+      ignores = [ ".DS_store" ];
+
+      includes = [
+        {
+          contents.user.email = "tom.sherman.com";
+          condition = "hasconfig:remote.*.url:git@github.com:ovotech/**";
+        }
+        {
+          contents.user.email = "tom.sherman.com";
+          condition = "hasconfig:remote.*.url:https://github.com/ovotech/**";
+        }
+      ];
+
+      extraConfig = {
+        core.editor = "code --wait";
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
+
+        gpg.format = "ssh";
+        "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      };
     };
   };
 }
