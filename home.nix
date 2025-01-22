@@ -79,7 +79,7 @@
       shellAliases = {
         # Nix
         build = "darwin-rebuild switch --flake ~/.config/nix-darwin";
-        update = "nix flake update ~/.config/nix-darwin";
+        update = "nix flake update --flake ~/.config/nix-darwin";
       };
 
       plugins = [
