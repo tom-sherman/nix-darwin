@@ -36,6 +36,9 @@
 
             pkgs.gh
             pkgs._1password-cli
+
+            pkgs.nodejs
+            pkgs.corepack
           ];
 
           # Necessary for using flakes on this system.
