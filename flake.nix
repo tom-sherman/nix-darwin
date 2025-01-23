@@ -59,6 +59,16 @@
 
           security.pam.enableSudoTouchIdAuth = true;
 
+          system.defaults.finder = {
+            AppleShowAllExtensions = true;
+            AppleShowAllFiles = true;
+            FXPreferredViewStyle = "clmv";
+            ShowPathbar = false;
+            ShowStatusBar = false;
+            _FXShowPosixPathInTitle = false;
+            _FXSortFoldersFirst = true;
+          };
+
           users.users.tom = {
             name = "tom";
             home = "/Users/tom";
