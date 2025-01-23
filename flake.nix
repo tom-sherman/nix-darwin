@@ -69,6 +69,21 @@
             _FXSortFoldersFirst = true;
           };
 
+          system.defaults.controlcenter = {
+            NowPlaying = false;
+            Sound = true;
+          };
+
+          system.defaults.CustomUserPreferences."~/Library/Preferences/ByHost/com.apple.Spotlight.plist" = {
+            "MenuItemHidden" = true;
+          };
+
+          system.defaults.dock = {
+            magnification = true;
+            tilesize = 46;
+            largesize = 64;
+          };
+
           users.users.tom = {
             name = "tom";
             home = "/Users/tom";
