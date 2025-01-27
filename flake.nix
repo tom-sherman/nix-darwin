@@ -37,6 +37,7 @@
             pkgs.gh
             pkgs._1password-cli
             pkgs.bat
+            pkgs.httpie
 
             pkgs.nodejs
             pkgs.corepack
