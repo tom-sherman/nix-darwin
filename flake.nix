@@ -38,9 +38,12 @@
             pkgs._1password-cli
             pkgs.bat
             pkgs.httpie
+            pkgs.bundler
+            pkgs.bruno
 
             pkgs.nodejs
             pkgs.corepack
+            pkgs.deno
           ];
 
           # Necessary for using flakes on this system.
