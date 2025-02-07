@@ -40,6 +40,7 @@
             pkgs.httpie
             pkgs.bundler
             pkgs.bruno
+            pkgs.kubectl
 
             pkgs.nodejs
             pkgs.corepack
