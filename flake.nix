@@ -41,6 +41,7 @@
             pkgs.bundler
             pkgs.bruno
             pkgs.kubectl
+            pkgs.cocoapods
 
             pkgs.nodejs
             pkgs.corepack
