@@ -84,6 +84,11 @@
         cat = "bat --paging=never";
       };
 
+      # Rancher desktop (installed externally)
+      shellInit = ''
+        set -gx PATH $HOME/.rd/bin $PATH
+      '';
+
       plugins = [
         {
           name = "z";
