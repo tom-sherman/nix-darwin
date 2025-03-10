@@ -42,7 +42,7 @@
             pkgs.bruno
             pkgs.kubectl
             pkgs.cocoapods
-            pkgs.firebase-tools
+            pkgs.flyctl
 
             pkgs.nodejs
             pkgs.corepack
