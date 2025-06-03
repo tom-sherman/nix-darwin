@@ -51,6 +51,7 @@
             pkgs.gnupg
             pkgs.rustup
             pkgs.cmake
+            pkgs.vale
 
             pkgs.nodejs
             pkgs.corepack
