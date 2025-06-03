@@ -26,6 +26,7 @@
             pkg:
             builtins.elem (lib.getName pkg) [
               "1password-cli"
+              "terraform"
             ];
 
           # List packages installed in system profile. To search by name, run:
@@ -43,6 +44,13 @@
             pkgs.kubectl
             pkgs.cocoapods
             pkgs.flyctl
+            pkgs.websocat
+            pkgs.pv
+            pkgs.terraform
+            pkgs.terraform-ls
+            pkgs.gnupg
+            pkgs.rustup
+            pkgs.cmake
 
             pkgs.nodejs
             pkgs.corepack

@@ -1,5 +1,5 @@
 {
-  _config,
+  config,
   pkgs,
   inputs,
   ...
@@ -19,6 +19,10 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.username = "tom";
+
+  home.sessionVariables = {
+    NODE_EXTRA_CA_CERTS = "${config.home.homeDirectory}/CA-Bundle-ZTNA.pem";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
