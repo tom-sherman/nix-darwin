@@ -76,6 +76,8 @@
 
           security.pam.services.sudo_local.touchIdAuth = true;
 
+          system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+
           system.defaults.finder = {
             AppleShowAllExtensions = true;
             AppleShowAllFiles = true;
