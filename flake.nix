@@ -2,13 +2,21 @@
   description = "Example nix-darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -17,6 +25,9 @@
       nix-darwin,
       nixpkgs,
       home-manager,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask
     }:
     let
       configuration =
@@ -58,6 +69,9 @@
             pkgs.deno
           ];
 
+          system.primaryUser = "tom";
+          system.activationScripts.postActivation.enable = true;
+
           # Necessary for using flakes on this system.
           nix.settings.experimental-features = "nix-command flakes";
 
@@ -93,9 +107,9 @@
             Sound = true;
           };
 
-          system.defaults.CustomUserPreferences."~/Library/Preferences/ByHost/com.apple.Spotlight.plist" = {
-            "MenuItemHidden" = true;
-          };
+          # system.defaults.CustomUserPreferences."~/Library/Preferences/ByHost/com.apple.Spotlight.plist" = {
+          #   "MenuItemHidden" = true;
+          # };
 
           system.defaults.dock = {
             magnification = true;
@@ -119,6 +133,31 @@
           {
             home-manager.useUserPackages = true;
             home-manager.users.tom = import ./home.nix;
+          }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              # Install Homebrew under the default prefix
+              enable = true;
+              autoMigrate = true;
+
+              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+              enableRosetta = true;
+
+              # User owning the Homebrew prefix
+              user = "tom";
+
+              # Optional: Declarative tap management
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+
+              # Optional: Enable fully-declarative tap management
+              #
+              # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+              mutableTaps = false;
+            };
           }
         ];
       };
