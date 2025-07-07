@@ -27,7 +27,7 @@
       home-manager,
       nix-homebrew,
       homebrew-core,
-      homebrew-cask
+      homebrew-cask,
     }:
     let
       configuration =
@@ -63,6 +63,7 @@
             pkgs.rustup
             pkgs.cmake
             pkgs.vale
+            pkgs.google-cloud-sdk
 
             pkgs.nodejs
             pkgs.corepack
