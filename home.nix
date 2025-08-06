@@ -104,7 +104,7 @@
     git = {
       enable = true;
       userName = "Tom Sherman";
-      userEmail = "the.tomsherman@gmail.com";
+      userEmail = "tom@sherman.is";
 
       signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwoiSqgcnFqY+9q8wJTFYEjyoeHgcSUBQk25E8tCmQv";
       signing.signByDefault = true;
