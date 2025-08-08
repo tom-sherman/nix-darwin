@@ -22,6 +22,7 @@
 
   home.sessionVariables = {
     NODE_EXTRA_CA_CERTS = "${config.home.homeDirectory}/CA-Bundle-ZTNA.pem";
+    DENO_CERT = "${config.home.homeDirectory}/CA-Bundle-ZTNA.pem";
   };
 
   # The home.packages option allows you to install Nix packages into your
