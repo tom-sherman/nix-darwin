@@ -64,6 +64,7 @@
             pkgs.cmake
             pkgs.vale
             pkgs.google-cloud-sdk
+            pkgs.jujutsu
 
             pkgs.nodejs
             pkgs.corepack

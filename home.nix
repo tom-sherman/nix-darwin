@@ -58,6 +58,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/jj/config.toml".source = dotfiles/jj.toml;
   };
 
   # You can also manage environment variables but you will have to manually
