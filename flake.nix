@@ -65,6 +65,7 @@
             pkgs.vale
             pkgs.google-cloud-sdk
             pkgs.jujutsu
+            pkgs.ripgrep
 
             pkgs.nodejs
             pkgs.corepack
