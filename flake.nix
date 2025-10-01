@@ -45,6 +45,7 @@
           environment.systemPackages = [
             pkgs.nixfmt-rfc-style
             pkgs.nil
+            pkgs.nixd
 
             pkgs.gh
             pkgs._1password-cli
