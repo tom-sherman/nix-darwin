@@ -68,7 +68,7 @@
             pkgs.jujutsu
             pkgs.ripgrep
 
-            pkgs.nodejs
+            pkgs.nodejs_24
             pkgs.corepack
             pkgs.deno
           ];
