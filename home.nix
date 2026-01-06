@@ -113,12 +113,12 @@
 
       includes = [
         {
-          contents.user.email = "tom.sherman@ovo.com";
-          condition = "hasconfig:remote.*.url:git@github.com:ovotech/**";
+          contents.user.email = "tom.sherman@civica.com";
+          condition = "hasconfig:remote.*.url:git@github.com:civica/**";
         }
         {
-          contents.user.email = "tom.sherman@ovo.com";
-          condition = "hasconfig:remote.*.url:https://github.com/ovotech/**";
+          contents.user.email = "tom.sherman@civica.com";
+          condition = "hasconfig:remote.*.url:https://github.com/civica/**";
         }
       ];
 
