@@ -73,7 +73,7 @@
             pkgs.deno
           ];
 
-          system.primaryUser = "tom";
+          system.primaryUser = "Tom.Sherman";
           system.activationScripts.postActivation.enable = true;
 
           # Necessary for using flakes on this system.
@@ -111,32 +111,28 @@
             Sound = true;
           };
 
-          # system.defaults.CustomUserPreferences."~/Library/Preferences/ByHost/com.apple.Spotlight.plist" = {
-          #   "MenuItemHidden" = true;
-          # };
-
           system.defaults.dock = {
             magnification = true;
             tilesize = 46;
             largesize = 64;
           };
 
-          users.users.tom = {
-            name = "tom";
-            home = "/Users/tom";
+          users.users."Tom.Sherman" = {
+            name = "Tom.Sherman";
+            home = "/Users/Tom.Sherman";
           };
         };
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#OVO-JG9F6LK4WY
-      darwinConfigurations."OVO-JG9F6LK4WY" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#MBP-H53F7P3VNY
+      darwinConfigurations."MBP-H53F7P3VNY" = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
           home-manager.darwinModules.home-manager
           {
             home-manager.useUserPackages = true;
-            home-manager.users.tom = import ./home.nix;
+            home-manager.users."Tom.Sherman" = import ./home.nix;
           }
           nix-homebrew.darwinModules.nix-homebrew
           {
@@ -149,7 +145,7 @@
               enableRosetta = true;
 
               # User owning the Homebrew prefix
-              user = "tom";
+              user = "Tom.Sherman";
 
               # Optional: Declarative tap management
               taps = {

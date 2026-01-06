@@ -17,8 +17,6 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  home.username = "tom";
-
   home.sessionVariables = {
     NODE_EXTRA_CA_CERTS = "${config.home.homeDirectory}/CA-Bundle-ZTNA.pem";
     DENO_CERT = "${config.home.homeDirectory}/CA-Bundle-ZTNA.pem";
