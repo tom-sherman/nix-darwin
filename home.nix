@@ -110,16 +110,18 @@
 
       ignores = [ ".DS_store" ];
 
-      includes = [
-        {
-          contents.user.email = "tom.sherman@civica.com";
-          condition = "hasconfig:remote.*.url:git@github.com:civica/**";
-        }
-        {
-          contents.user.email = "tom.sherman@civica.com";
-          condition = "hasconfig:remote.*.url:https://github.com/civica/**";
-        }
-      ];
+      includes =
+        map
+          (condition: {
+            inherit condition;
+            contents.user.email = "tom.sherman@civica.com";
+            # Needed because GitHub doesn't allow the same key to be used for multiple accounts
+            contents.user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF9NU4OwpOAbIj4RYKoK4kDnkiSV3HnGCLuef8EAnhT2";
+          })
+          [
+            "hasconfig:remote.*.url:git@github.com:civica/**"
+            "hasconfig:remote.*.url:https://github.com/civica/**"
+          ];
 
       extraConfig = {
         core.editor = "code --wait";
