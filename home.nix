@@ -77,7 +77,7 @@
       enable = true;
       shellAliases = {
         # Nix
-        build = "darwin-rebuild switch --flake ~/.config/nix-darwin";
+        build = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin";
         update = "nix flake update --flake ~/.config/nix-darwin";
         gc = "nix-collect-garbage -d";
         cat = "bat --paging=never";
@@ -97,11 +97,21 @@
 
     git = {
       enable = true;
-      userName = "Tom Sherman";
-      userEmail = "tom@sherman.is";
+      settings = {
+        user = {
+          name = "Tom Sherman";
+          email = "tom@sherman.is";
+          signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwoiSqgcnFqY+9q8wJTFYEjyoeHgcSUBQk25E8tCmQv";
+        };
+        core.editor = "code --wait";
+        init.defaultBranch = "main";
+        push.autoSetupRemote = true;
 
-      signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwoiSqgcnFqY+9q8wJTFYEjyoeHgcSUBQk25E8tCmQv";
-      signing.signByDefault = true;
+        commit.gpgsign = true;
+        # TODO: Get 1password installed via nix https://nixos.wiki/wiki/1Password
+        gpg.format = "ssh";
+        "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      };
 
       ignores = [ ".DS_store" ];
 
@@ -117,16 +127,6 @@
             "hasconfig:remote.*.url:git@github.com:civica/**"
             "hasconfig:remote.*.url:https://github.com/civica/**"
           ];
-
-      extraConfig = {
-        core.editor = "code --wait";
-        init.defaultBranch = "main";
-        push.autoSetupRemote = true;
-
-        # TODO: Get 1password installed via nix https://nixos.wiki/wiki/1Password
-        gpg.format = "ssh";
-        "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      };
     };
   };
 }

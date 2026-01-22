@@ -43,7 +43,7 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
-            pkgs.nixfmt-rfc-style
+            pkgs.nixfmt
             pkgs.nil
             pkgs.nixd
 
@@ -67,6 +67,7 @@
             pkgs.google-cloud-sdk
             pkgs.jujutsu
             pkgs.ripgrep
+            pkgs.watchman
 
             pkgs.nodejs_24
             pkgs.corepack
