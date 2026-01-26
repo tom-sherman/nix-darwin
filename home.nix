@@ -53,6 +53,7 @@
     # '';
 
     ".config/jj/config.toml".source = dotfiles/jj.toml;
+    ".config/rift/config.toml".source = dotfiles/rift.toml;
   };
 
   # You can also manage environment variables but you will have to manually
