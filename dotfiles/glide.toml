@@ -69,8 +69,8 @@ status_icon.enable = true
 
 # Toggle between saved layouts on the active space. This allows you to access
 # layouts from other screen sizes.
-"Alt + N" = "next_layout"
-"Alt + P" = "prev_layout"
+"Alt + Ctrl + N" = "next_layout"
+"Alt + Ctrl + P" = "prev_layout"
 
 # Create a container above the current node in the specified orientation.
 # This has the effect of "splitting" the current window/node once a new node
