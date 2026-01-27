@@ -17,6 +17,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-FelixKratz = {
+      url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
   };
 
   outputs =
@@ -28,6 +32,7 @@
       nix-homebrew,
       homebrew-core,
       homebrew-cask,
+      homebrew-FelixKratz,
     }:
     let
       configuration =
@@ -43,7 +48,8 @@
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
-            (pkgs.callPackage ./rift.nix { })
+            (pkgs.callPackage ./glide.nix { })
+
             pkgs.nixfmt
             pkgs.nil
             pkgs.nixd
@@ -123,6 +129,13 @@
             name = "Tom.Sherman";
             home = "/Users/Tom.Sherman";
           };
+
+          homebrew = {
+            enable = true;
+            brews = [
+              "FelixKratz/formulae/borders"
+            ];
+          };
         };
     in
     {
@@ -153,6 +166,7 @@
               taps = {
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
+                "FelixKratz/homebrew-formulae" = homebrew-FelixKratz;
               };
 
               # Optional: Enable fully-declarative tap management
