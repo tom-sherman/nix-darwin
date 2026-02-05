@@ -65,7 +65,7 @@
             pkgs.flyctl
             pkgs.websocat
             pkgs.pv
-            pkgs.terraform
+            pkgs.tenv
             pkgs.terraform-ls
             pkgs.gnupg
             pkgs.rustup
@@ -75,6 +75,8 @@
             pkgs.jujutsu
             pkgs.ripgrep
             pkgs.watchman
+            pkgs.go
+            pkgs.jq
 
             pkgs.nodejs_24
             pkgs.corepack
