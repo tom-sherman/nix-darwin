@@ -57,10 +57,14 @@ status_icon.enable = true
 "Meta + Alt + Ctrl + Shift + L" = { move_node = "right" }
 
 # Resize the focused window in the specified direction by percentage.
-"Alt + Ctrl + H" = { resize = { direction = "left", percent = 5 } }
-"Alt + Ctrl + J" = { resize = { direction = "down", percent = 5 } }
-"Alt + Ctrl + K" = { resize = { direction = "up", percent = 5 } }
-"Alt + Ctrl + L" = { resize = { direction = "right", percent = 5 } }
+"Meta + Alt + Ctrl + ArrowLeft" = { resize = { direction = "left", percent = 5 } }
+"Meta + Alt + Ctrl + ArrowDown" = { resize = { direction = "down", percent = 5 } }
+"Meta + Alt + Ctrl + ArrowUp" = { resize = { direction = "up", percent = 5 } }
+"Meta + Alt + Ctrl + ArrowRight" = { resize = { direction = "right", percent = 5 } }
+"Meta + Alt + Ctrl + Shift + ArrowLeft" = { resize = { direction = "right", percent = -5 } }
+"Meta + Alt + Ctrl + Shift + ArrowDown" = { resize = { direction = "up", percent = -5 } }
+"Meta + Alt + Ctrl + Shift + ArrowUp" = { resize = { direction = "down", percent = -5 } }
+"Meta + Alt + Ctrl + Shift + ArrowRight" = { resize = { direction = "left", percent = -5 } }
 
 # Move up or down the tree hieararchy, selecting a parent or child node
 # respectively.
