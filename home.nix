@@ -119,6 +119,12 @@
         "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       };
 
+      aliases = {
+        dlog = "-c diff.external=difft log --ext-diff";
+        dshow = "-c diff.external=difft show --ext-diff";
+        ddiff = "-c diff.external=difft diff --ext-diff";
+      };
+
       ignores = [ ".DS_store" ];
 
       includes =

@@ -77,6 +77,7 @@
             pkgs.watchman
             pkgs.go
             pkgs.jq
+            pkgs.difftastic
 
             pkgs.nodejs_24
             pkgs.corepack
