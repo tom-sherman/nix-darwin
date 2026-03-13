@@ -54,6 +54,7 @@
 
     ".config/jj/config.toml".source = dotfiles/jj.toml;
     ".glide.toml".source = dotfiles/glide.toml;
+    ".config/ghostty/config".source = dotfiles/ghostty-config;
   };
 
   # You can also manage environment variables but you will have to manually
@@ -117,12 +118,12 @@
         # TODO: Get 1password installed via nix https://nixos.wiki/wiki/1Password
         gpg.format = "ssh";
         "gpg \"ssh\"".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      };
 
-      aliases = {
-        dlog = "-c diff.external=difft log --ext-diff";
-        dshow = "-c diff.external=difft show --ext-diff";
-        ddiff = "-c diff.external=difft diff --ext-diff";
+        aliases = {
+          dlog = "-c diff.external=difft log --ext-diff";
+          dshow = "-c diff.external=difft show --ext-diff";
+          ddiff = "-c diff.external=difft diff --ext-diff";
+        };
       };
 
       ignores = [ ".DS_store" ];

@@ -78,6 +78,7 @@
             pkgs.go
             pkgs.jq
             pkgs.difftastic
+            pkgs.ghostty-bin
 
             pkgs.nodejs_24
             pkgs.corepack
