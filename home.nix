@@ -4,6 +4,9 @@
   ...
 }:
 
+let
+  dotfilesPath = "${config.home.homeDirectory}/.config/nix-darwin/dotfiles";
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -38,8 +41,9 @@
     # '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
+  # Symlink dotfiles directly from the source directory rather than copying them
+  # into the Nix store. This means changes to dotfiles are reflected immediately
+  # without requiring a full `darwin-rebuild switch`.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -52,9 +56,9 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/jj/config.toml".source = dotfiles/jj.toml;
-    ".glide.toml".source = dotfiles/glide.toml;
-    ".config/ghostty/config".source = dotfiles/ghostty-config;
+    ".config/jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/jj.toml";
+    ".glide.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/glide.toml";
+    ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/ghostty-config";
   };
 
   # You can also manage environment variables but you will have to manually
