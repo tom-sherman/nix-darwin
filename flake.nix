@@ -35,6 +35,17 @@
       homebrew-FelixKratz,
     }:
     let
+      # Machine-specific config loaded from local.nix.
+      # Edit local.nix to set your machine's hostname and username.
+      # Build with: darwin-rebuild switch --flake .#<hostname>
+      localConfig =
+        if builtins.pathExists ./local.nix then
+          import ./local.nix
+        else
+          throw "local.nix not found. Create local.nix with your machine's hostname and username (see the hostname/username comments in flake.nix).";
+      hostname = localConfig.hostname;
+      username = localConfig.username;
+
       configuration =
         { pkgs, lib, ... }:
         {
@@ -85,7 +96,7 @@
             pkgs.deno
           ];
 
-          system.primaryUser = "Tom.Sherman";
+          system.primaryUser = username;
           system.activationScripts.postActivation.enable = true;
 
           # Necessary for using flakes on this system.
@@ -129,9 +140,9 @@
             largesize = 64;
           };
 
-          users.users."Tom.Sherman" = {
-            name = "Tom.Sherman";
-            home = "/Users/Tom.Sherman";
+          users.users.${username} = {
+            name = username;
+            home = "/Users/${username}";
           };
 
           homebrew = {
@@ -144,14 +155,14 @@
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#MBP-H53F7P3VNY
-      darwinConfigurations."MBP-H53F7P3VNY" = nix-darwin.lib.darwinSystem {
+      # $ darwin-rebuild build --flake .#<hostname>
+      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
           home-manager.darwinModules.home-manager
           {
             home-manager.useUserPackages = true;
-            home-manager.users."Tom.Sherman" = import ./home.nix;
+            home-manager.users.${username} = import ./home.nix;
           }
           nix-homebrew.darwinModules.nix-homebrew
           {
@@ -164,7 +175,7 @@
               enableRosetta = true;
 
               # User owning the Homebrew prefix
-              user = "Tom.Sherman";
+              user = username;
 
               # Optional: Declarative tap management
               taps = {
