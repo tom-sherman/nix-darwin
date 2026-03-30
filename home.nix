@@ -83,7 +83,7 @@ in
       enable = true;
       shellAliases = {
         # Nix
-        build = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin";
+        build = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin --impure";
         update = "nix flake update --flake ~/.config/nix-darwin";
         gc = "nix-collect-garbage -d";
         cat = "bat --paging=never";
