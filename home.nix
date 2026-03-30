@@ -59,6 +59,7 @@ in
     ".config/jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/jj.toml";
     ".glide.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/glide.toml";
     ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/ghostty-config";
+    ".npmrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.npmrc";
   };
 
   # You can also manage environment variables but you will have to manually
