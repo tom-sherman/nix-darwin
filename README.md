@@ -4,24 +4,17 @@ and dotfiles
 
 ## Setup
 
-Copy `local.nix.example` to `local.nix` and fill in your machine's hostname and username:
+Edit `local.nix` to set your machine's hostname and username:
 
-```sh
-cp local.nix.example local.nix
-```
-
-Then edit `local.nix` with your values. `local.nix` is gitignored so it stays local to each machine.
-
-To find your hostname, run:
-
-```sh
-scutil --get LocalHostName
+```nix
+{
+  hostname = "your-hostname";  # run `scutil --get LocalHostName` to find this
+  username = "Your.Username";
+}
 ```
 
 To apply the configuration:
 
 ```sh
-sudo darwin-rebuild switch --flake ~/.config/nix-darwin --impure
+sudo darwin-rebuild switch --flake ~/.config/nix-darwin
 ```
-
-The `--impure` flag is required so Nix can read `local.nix` (which is not tracked by git).

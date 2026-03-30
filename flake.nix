@@ -35,14 +35,14 @@
       homebrew-FelixKratz,
     }:
     let
-      # Machine-specific config loaded from local.nix (gitignored).
-      # Copy local.nix.example to local.nix and fill in your values.
-      # Build with: darwin-rebuild switch --flake .#<hostname> --impure
+      # Machine-specific config loaded from local.nix.
+      # Edit local.nix to set your machine's hostname and username.
+      # Build with: darwin-rebuild switch --flake .#<hostname>
       localConfig =
         if builtins.pathExists ./local.nix then
           import ./local.nix
         else
-          throw "local.nix not found. Copy local.nix.example to local.nix and fill in your machine's hostname and username.";
+          throw "local.nix not found. Create local.nix with your machine's hostname and username (see the hostname/username comments in flake.nix).";
       hostname = localConfig.hostname;
       username = localConfig.username;
 
@@ -155,7 +155,7 @@
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#<hostname> --impure
+      # $ darwin-rebuild build --flake .#<hostname>
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
         modules = [
           configuration
