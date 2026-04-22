@@ -91,6 +91,11 @@
             pkgs.difftastic
             pkgs.ghostty-bin
 
+            # knative
+            pkgs.kind
+            pkgs.kn
+            pkgs.func
+
             pkgs.nodejs_24
             pkgs.corepack
             pkgs.deno
