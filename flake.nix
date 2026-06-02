@@ -99,6 +99,7 @@
             pkgs.nodejs_24
             pkgs.corepack
             pkgs.deno
+            pkgs.bun
           ];
 
           system.primaryUser = username;
