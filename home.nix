@@ -58,8 +58,10 @@ in
 
     ".config/jj/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/jj.toml";
     ".glide.toml".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/glide.toml";
-    ".config/ghostty/config".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/ghostty-config";
+    ".config/ghostty/config".source =
+      config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/ghostty-config";
     ".npmrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.npmrc";
+    ".claude/CLAUDE.md".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/CLAUDE.md";
   };
 
   # You can also manage environment variables but you will have to manually
@@ -90,9 +92,10 @@ in
         cat = "bat --paging=never";
       };
 
-      # Rancher desktop (installed externally)
+      # Rancher desktop and Claude Code (installed externally)
       shellInit = ''
         set -gx PATH $HOME/.rd/bin $PATH
+        set -gx PATH $HOME/.local/bin $PATH
       '';
 
       plugins = [
