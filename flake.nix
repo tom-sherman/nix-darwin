@@ -124,6 +124,8 @@
           security.pam.services.sudo_local.touchIdAuth = true;
 
           system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+          # Keyboard > Keyboard Navigation
+          system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
 
           system.defaults.finder = {
             AppleShowAllExtensions = true;
