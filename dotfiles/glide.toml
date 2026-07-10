@@ -130,3 +130,8 @@ status_icon.color = false
 
 # Ignored; kept for compatibility.
 status_icon.enable = true
+
+# Always float macos preferences
+[[window_rules]]
+if.app_id = "com.apple.systempreferences"
+float = true
