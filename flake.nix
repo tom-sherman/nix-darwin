@@ -127,6 +127,9 @@
           # Keyboard > Keyboard Navigation
           system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
 
+          # false (the macos default) is required for using glide (note: a logout is required for this to take effect)
+          system.defaults.spaces.spans-displays = false;
+
           system.defaults.finder = {
             AppleShowAllExtensions = true;
             AppleShowAllFiles = true;
