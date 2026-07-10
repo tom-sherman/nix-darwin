@@ -6,11 +6,11 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "glide";
-  version = "0.2.13";
+  version = "0.2.14";
 
   src = fetchurl {
     url = "https://github.com/glide-wm/glide/releases/download/v${version}/Glide_${version}_aarch64.dmg";
-    sha256 = "sha256-87rwvaOO3SQMNAABAxgbzHulYUE96ruxDIBOxsu7T1Y=";
+    sha256 = "sha256-o9JpG6jq9aA0kAAbacIa1YWt58IAHu4+2KK3DAqpWug=";
   };
 
   nativeBuildInputs = [ undmg ];
