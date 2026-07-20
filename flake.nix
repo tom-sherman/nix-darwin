@@ -60,6 +60,7 @@
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
             (pkgs.callPackage ./glide.nix { })
+            (pkgs.callPackage ./leaderkey.nix { })
 
             pkgs.nixfmt
             pkgs.nil
