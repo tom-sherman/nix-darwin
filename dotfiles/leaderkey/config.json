@@ -85,8 +85,8 @@
     {
       "iconPath" : "/Applications/Claude.app",
       "key" : "c",
-      "type" : "url",
-      "value" : "claude://claude.ai/new"
+      "type" : "command",
+      "value" : "/Users/Tom.Sherman/.config/nix-darwin/dotfiles/leaderkey/claude-quickaccess.sh"
     }
   ],
   "type" : "group"
