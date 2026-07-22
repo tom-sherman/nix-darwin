@@ -61,6 +61,7 @@
           environment.systemPackages = [
             (pkgs.callPackage ./glide.nix { })
             (pkgs.callPackage ./leaderkey.nix { })
+            (pkgs.callPackage ./codiff.nix { })
 
             pkgs.nixfmt
             pkgs.nil
