@@ -98,7 +98,7 @@
             pkgs.kn
             pkgs.func
 
-            pkgs.nodejs_24
+            pkgs.nodejs_26
             pkgs.corepack
             pkgs.deno
             pkgs.bun
