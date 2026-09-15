@@ -99,7 +99,8 @@
             pkgs.func
 
             pkgs.nodejs_26
-            pkgs.corepack
+            # Manually installing pnpm for now (for pnpm 12)
+            # pkgs.pnpm_11
             pkgs.deno
             pkgs.bun
           ];

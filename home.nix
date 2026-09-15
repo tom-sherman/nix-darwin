@@ -96,6 +96,10 @@ in
       shellInit = ''
         set -gx PATH $HOME/.rd/bin $PATH
         set -gx PATH $HOME/.local/bin $PATH
+
+        # Only required while we are manually installing pnpm (for pnpm 12) rather than using the nix package
+        set -gx PATH $HOME/Library/pnpm/bin $PATH
+        set -gx PNPM_HOME $HOME/Library/pnpm
       '';
 
       plugins = [
