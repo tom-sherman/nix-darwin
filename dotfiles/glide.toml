@@ -18,7 +18,7 @@ mouse_follows_focus = true
 mouse_hides_on_focus = true
 
 # Gap between windows and screen edges (in pixels).
-outer_gap = 10
+outer_gap = 5
 
 # Gap between adjacent windows (in pixels).
 inner_gap = 5
