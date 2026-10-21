@@ -72,7 +72,8 @@
             pkgs.bat
             pkgs.httpie
             pkgs.bundler
-            pkgs.bruno
+            # Temporarily removed: needs a nodejs 22 source build until Hydra caches 22.23.4
+            # pkgs.bruno
             pkgs.kubectl
             pkgs.cocoapods
             pkgs.flyctl
@@ -98,7 +99,9 @@
             pkgs.kn
             pkgs.func
 
-            pkgs.nodejs_26
+            # Temporary until pkgs.nodejs_26 26.12.1 is in the binary cache (see nodejs-bin.nix)
+            (pkgs.callPackage ./nodejs-bin.nix { })
+            # pkgs.nodejs_26
             # Manually installing pnpm for now (for pnpm 12)
             # pkgs.pnpm_11
             pkgs.deno
