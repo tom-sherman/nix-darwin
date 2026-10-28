@@ -135,3 +135,11 @@ status_icon.enable = true
 [[window_rules]]
 if.app_id = "com.apple.systempreferences"
 float = true
+
+[[window_rules]]
+if.app_id = "com.apple.iCal"
+float = true
+
+[[window_rules]]
+if.app_id = "com.apple.finder"
+float = true
