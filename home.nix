@@ -6,6 +6,13 @@
 
 let
   dotfilesPath = "${config.home.homeDirectory}/.config/nix-darwin/dotfiles";
+
+  # Per-machine secrets (e.g. npm registry tokens), kept out of git. Written as
+  # POSIX `export` lines so fish, zsh and bash can all source the same file.
+  tokensFile = "${config.home.homeDirectory}/.config/tokens.sh";
+  sourceTokens = ''
+    [ -f "${tokensFile}" ] && . "${tokensFile}"
+  '';
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -62,6 +69,10 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/ghostty-config";
     ".npmrc".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/.npmrc";
     ".claude/CLAUDE.md".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/CLAUDE.md";
+
+    # zsh is the login shell and what Claude Code runs commands in. ~/.zshrc is
+    # left unmanaged; .zshenv is read by every zsh, interactive or not.
+    ".zshenv".text = sourceTokens;
   };
 
   # You can also manage environment variables but you will have to manually
@@ -82,6 +93,12 @@ in
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
+    bash = {
+      enable = true;
+      profileExtra = sourceTokens;
+      bashrcExtra = sourceTokens;
+    };
+
     fish = {
       enable = true;
       shellAliases = {
@@ -100,6 +117,8 @@ in
         # Only required while we are manually installing pnpm (for pnpm 12) rather than using the nix package
         set -gx PATH $HOME/Library/pnpm/bin $PATH
         set -gx PNPM_HOME $HOME/Library/pnpm
+
+        test -f ${tokensFile}; and source ${tokensFile}
       '';
 
       plugins = [
